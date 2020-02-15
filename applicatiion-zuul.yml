@@ -1,0 +1,23 @@
+server:
+  port: 9700
+spring:
+  application:
+    name: dome_zuul
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: dome-config
+      profile: test
+eureka:
+  instance:
+    hostname: e2
+  client:
+    service-url:
+      #指定要去注册的地址
+      defaultZone: http://localhost:8000/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #打开所有的监控断点 api  如果想访问特定的就写具体的名字 比如 info,health,routes
